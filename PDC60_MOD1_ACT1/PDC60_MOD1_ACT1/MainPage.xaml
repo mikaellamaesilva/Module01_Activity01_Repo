@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PDC60_MOD1_ACT1"
+             x:Class="PDC60_MOD1_ACT1.MainPage"
+           
+            >
+
+    
+    <StackLayout>
+
+        <Frame BackgroundColor="#8ab2aa" 
+               Padding="30,90,30,20" CornerRadius="0">
+            <StackLayout>
+                <Label Text="What is Pastel Color?" 
+                   HorizontalTextAlignment="Start" 
+                   TextColor="{x:Static local:ConstantsClass.HeaderColor}"
+                   FontSize="{x:Static local:ConstantsClass.Header}" />
+                <Label Text="2 min read  |  visme.co/blog/pastel-colors/"
+                        TextColor="{x:Static local:ConstantsClass.HeaderColor}"
+                       FontSize="{x:Static local:ConstantsClass.Reference}"
+                       Padding="5,0,0,0"
+                       />
+                       
+            </StackLayout>
+            
+        </Frame>
+            
+        
+       
+        <Label Text="A pastel color is any color that has just enough white mixed into it to look pale and soft while maintaining its colorful personality. Pastels are less saturated than primary colors, making them feel light, soft, and calming. " 
+              FontSize="{x:Static local:ConstantsClass.Body}" 
+              Padding="30,20,30,0"/>
+        
+        <Label Text="Example" 
+               FontSize="{x:Static local:ConstantsClass.Subheader}" 
+               TextColor="#789b95"
+               FontAttributes="Bold"
+               Padding="30,10,0,0"/>
+
+        <ListView Margin="30,10,30,10"
+                  SelectionMode="None">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type Color}">
+                    <Color>#ddc5e7</Color>
+                    <Color>#b4eecd</Color>
+                    <Color>#b7dbf3</Color>
+                    <Color>#faeba7</Color>
+                    <Color>#f9c1ba</Color>
+                    <Color>#b7dbf3</Color>
+                </x:Array>
+            </ListView.ItemsSource>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <BoxView Color="{Binding}"
+                             Margin="3" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+          <Label Text="Activity" 
+               FontSize="{x:Static local:ConstantsClass.Subheader}" 
+               TextColor="#789b95"
+               FontAttributes="Bold"
+               Padding="30,0,0,0"/>
+
+        <Label Text="Click to see a pastel yellow box."
+               FontSize="{x:Static local:ConstantsClass.Body}"
+               Padding="30,0,30,0"
+               />
+
+        <Button Text="Click me!"
+                    Margin="30,10,30,10"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="CenterAndExpand"
+                    Command="{Binding CreateCommand}"
+                    CommandParameter="{x:Type BoxView}" />
+
+
+        <StackLayout  x:Name="stackLayout">
+
+        </StackLayout>
+
+        <Label Text="Rate us" 
+               FontSize="{x:Static local:ConstantsClass.Subheader}" 
+               TextColor="#789b95"
+               FontAttributes="Bold"
+               Padding="30,0,0,0"/>
+        
+        <Label x:Name="valueLabel"
+                   Text="Rate how much you like this page : "
+                   FontSize="{x:Static local:ConstantsClass.Body}"
+                   Padding="30,10,30,10"
+                  />
+
+        <Slider 
+                    ValueChanged="OnSliderValueChanged"
+                    Margin="30, 0, 30 ,10"
+                    Maximum="10"
+                    Minimum="1"/>
+
+
+       
+
+
+    </StackLayout>
+
+    
+
+</ContentPage>
